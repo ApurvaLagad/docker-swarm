@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      type: website
+  template:
+    metadata:
+      labels:
+        type: website
+    spec:
+      containers:
+        - name: container1
+          image: apurva549/newpy
+          ports:
+            - containerPort: 4000
+              protocol: TCP 
